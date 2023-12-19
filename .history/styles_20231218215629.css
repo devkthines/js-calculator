@@ -48,24 +48,4 @@ body{
 .output{
 grid-column: 1/-1;
 background-color: rgba(0, 0, 0, .75);
-
-/* align elements in container using flex */
-display: flex;
-align-items: flex-end;
-justify-content: space-around;
-/* to make the output elements vertically instead of horizontally*/
-flex-direction: column;
-padding: 10px;
-/* to allow words to break to next line if it gets too long */
-word-wrap: break-word;
-word-break: break-all;
-}
-.output .previous-operand{
-    color: rgba(255, 255, 255, .75);
-    font-size: 1.5rem;
-}
-
-.output .current-operand{
-    color: white;
-    font-size: 2.5rem;
 }

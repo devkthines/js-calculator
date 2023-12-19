@@ -1,0 +1,7 @@
+﻿*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+    color: rebeccapurple;
+}
