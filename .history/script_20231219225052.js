@@ -1,6 +1,5 @@
 ﻿
-// do this at the top of the file if possible, the constructor is for the display, and the functions are all that the calculator
-// will do
+// do this at the top of the file if possible, 
 class Calculator{
     constructor(previousOperandTextElement, currentOperandTextElement){
         this.previousOperandTextElement = previousOperandTextElement
