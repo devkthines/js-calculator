@@ -5,7 +5,7 @@ class Calculator{
     constructor(previousOperandTextElement, currentOperandTextElement){
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
-        this.clear()
+        this.clear
     }
     // to remove all the values in the display
     clear() {
@@ -19,10 +19,7 @@ class Calculator{
     }
 
     appendNumber(number) {
-
-        if(number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
-        console.log(this.currentOperand)
     }
 
     chooseOperation(operation) {
@@ -53,7 +50,7 @@ const calculator = new Calculator(previousOperandTextElement,currentOperandTextE
 
 
 numberButtons.forEach(button=>{
-    button.addEventListener('click', ()=> {
+    button.addEventListener('click',()=>{
         // click event listener appending value based on what is clicked
         calculator.appendNumber(button.innerText)
         // so the display values are onstant updated based on what is clicked.

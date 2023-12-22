@@ -5,6 +5,8 @@ class Calculator{
     constructor(previousOperandTextElement, currentOperandTextElement){
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
+        // this.currentOperand = ''; // Initialize currentOperand
+        // this.previousOperand = ''; // Initialize previousOperand
         this.clear()
     }
     // to remove all the values in the display
