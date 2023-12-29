@@ -89,12 +89,12 @@ class Calculator {
         if (isNaN(integerDigits)) {
             integerDisplay = ''
         } else {
-            // if integer value, then convert to local string, and no decimal place will be converted to make an error
+            // if integer value, then convert to local string, and no decimal place allowed after this when converted to string separated by commas
             integerDisplay = integerDigits.toLocaleString('en', {
                 maximumFractionDigits: 0
             })
         }
-        // this means there was a decimal place that was used and that part will be appended.
+        // this means there was adecimal place after
         if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`
         }

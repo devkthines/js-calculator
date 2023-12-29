@@ -79,22 +79,18 @@ class Calculator {
         //
         //
         const stringNumber = number.toString()
-        // getting the integer before and after the decimal place split turns them into arrays
-        // we weill turn it into number after we split the string into array based on what was before the decimal place
+        // getting the integer before and after the decimal place 
         const integerDigits = parseFloat(stringNumber.split('.')[0])
-        // don't parse it into number since we don't need a number just yet
+
         const decimalDigits = stringNumber.split('.')[1]
         let integerDisplay;
-
         if (isNaN(integerDigits)) {
             integerDisplay = ''
         } else {
-            // if integer value, then convert to local string, and no decimal place will be converted to make an error
             integerDisplay = integerDigits.toLocaleString('en', {
                 maximumFractionDigits: 0
             })
         }
-        // this means there was a decimal place that was used and that part will be appended.
         if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`
         }

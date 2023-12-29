@@ -15,8 +15,7 @@ class Calculator {
     }
 
     delete() {
-        // this will keep all the numbers except the last number, essentially cutting or "SLICING" it off
-        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+
     }
 
     appendNumber(number) {
@@ -64,59 +63,19 @@ class Calculator {
             case '÷':
                 computation = prev / current
                 break;
-            // exit if invalid computation
+                // exit if invalid computation
             default:
                 return;
         }
         this.currentOperand = computation;
         this.operation = undefined;
-        this.previousOperand = '';
+        this.previousOperand = ''
     }
-    // helper function that is called
-    // in update display function below to help display numbers in a correct style with comma separation
-    getDisplayNumber(number) {
-        //
-        //
-        //
-        const stringNumber = number.toString()
-        // getting the integer before and after the decimal place split turns them into arrays
-        // we weill turn it into number after we split the string into array based on what was before the decimal place
-        const integerDigits = parseFloat(stringNumber.split('.')[0])
-        // don't parse it into number since we don't need a number just yet
-        const decimalDigits = stringNumber.split('.')[1]
-        let integerDisplay;
-
-        if (isNaN(integerDigits)) {
-            integerDisplay = ''
-        } else {
-            // if integer value, then convert to local string, and no decimal place will be converted to make an error
-            integerDisplay = integerDigits.toLocaleString('en', {
-                maximumFractionDigits: 0
-            })
-        }
-        // this means there was a decimal place that was used and that part will be appended.
-        if (decimalDigits != null) {
-            return `${integerDisplay}.${decimalDigits}`
-        }
-        else {
-            return integerDisplay
-        }
-    }
-
 
     updateDisplay() {
-        this.currentOperandTextElement.innerText =
-        this.getDisplayNumber(this.currentOperand);
-        // this will append the operation to the end of the string on the display
-        if (this.operation != null) {
-            this.previousOperandTextElement.innerText =
-                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
-        }
-        else {
-            this.previousOperandTextElement.innerText = ''
-        }
+        this.currentOperandTextElement.innerText = this.currentOperand
+        this.previousOperandTextElement.innerText = this.previousOperand
     }
-
 }
 
 
@@ -125,7 +84,7 @@ const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
-const allClearButton = document.querySelector('[data-all-clear]');
+const allCelearButton = document.querySelector('[data-all-clear]');
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 
@@ -151,20 +110,9 @@ operationButtons.forEach(button => {
     })
 })
 
-equalsButton.addEventListener('click', button => {
+
+equalsButton.addEventListenerr('click', button => {
 
     calculator.compute()
-    calculator.updateDisplay()
-})
-
-allClearButton.addEventListener('click', button => {
-
-    calculator.clear()
-    calculator.updateDisplay()
-})
-
-deleteButton.addEventListener('click', button => {
-
-    calculator.delete()
     calculator.updateDisplay()
 })
